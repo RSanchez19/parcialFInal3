@@ -1,50 +1,43 @@
 extends layout
 
-block content
-  h1=title
-  div(class="container")
-   div(class="row")
-    div(class="col-md-5")
-     div(class="card")
-      div(class="card-body")
-      form(action="/add", method="POST")
-       div(class="form-group")
-        label(for="form-header", class="form-label") Aplicaciones moviles
-        br
-        label(for="app_name", class="form-label") Nombre de la aplicación:
-        br
-        input(type="text", class="form-control", name="app_name",placeholder="Whatsapp")  
-        br
-        label(for="app_os", class="form-label") Sistema Operativo:
-        br
-        input(type="text" name="app_os", class="form-control", placeholder="Android")
-        br
-        label(for="app_language", class="form-label") Lenguaje de programacion:
-        br
-        input(type="text", name="app_language", class="form-control", placeholder="JavaScript")
-        br
-        label(for="app_type", class="form-label") Tipo:
-        br
-        select(name="app_type", class="form-control")
-         option(value="Native") Nativa
-         option(value="Hybrid") Hibrida
-        br
-        label(for="multi_platform", class='form-label') ¿Multiplataforma?
-        br
-        select(name="app_multi_plattform", class='form-control')
-         option(value="Yes") Si
-         option(value="No") No
-        br
-        button(class="btn submit-btn", id="submit-btn") Añadir
-   div(class="col-md-7")
-    table(class="table table-bordered table-hover")
-     thead
-      tr
-       th Nº
-       th Nombre
-       th Sistema Operativo
-       th Lenguaje de programación
-       th Tipo
-       th Multi-plataforma 
-       th Operaciones
-     tbody  
+block content 
+ include navbar.pug
+ p= newMobile_app
+  div(class="form-container")
+   .col-md-8.mx-auto
+    div.card.container-card
+     include partials/error_alerts.pug
+     include partials/messages.pug
+     form(action="/add" method="POST")
+      div(class="form-group")
+       label(for="app_name", class="form-label") Nombre de la aplicación:
+       input(type="text", class="form-control", name="app_name",placeholder="Whatsapp" )  
+       label(for="app_os", class="form-label") Sistema Operativo:
+       input(type="text" name="app_os", class="form-control", placeholder="Android")
+       label(for="app_language", class="form-label") Lenguaje de programacion:
+       input(type="text", name="app_language", class="form-control", placeholder="JavaScript" )
+       label(for="app_type", class="form-label") Tipo:
+       select(name="app_type", class="form-control")
+        option(value="Native") Nativa
+        option(value="Hybrid") Hibrida
+       label(for="multi_platform", class='form-label') ¿Multiplataforma?
+       select(name="app_multi_plattform", class='form-control')
+        option(value="Yes") Si
+        option(value="No") No
+       button(class="btn submit-btn form-control", id="submit-btn") Añadir
+  div.col-md-10
+   table.table.table-bordered-table-hover
+    thead
+     tr
+      th Nº
+      th Nombre
+      th Sistema Operativo
+      th Lenguaje
+      th Tipo
+      th Multiplataforma
+      th Operaciones
+    tbody
+     
+
+      
+
