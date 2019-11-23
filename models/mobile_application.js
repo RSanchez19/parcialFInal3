@@ -1,7 +1,7 @@
  const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const mobile_appliaction =  new Schema({
+const mobile_application=  new Schema({
     name: String,
     os: String, 
     programming_language: String,
@@ -9,4 +9,4 @@ const mobile_appliaction =  new Schema({
     multi_platform: String
 })
 
-module.exports = mongoose.node('moblieApplication', mobile_application);
+module.exports = mongoose.model('aplicaciones_moviles', mobile_application);
